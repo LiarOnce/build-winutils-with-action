@@ -33,6 +33,9 @@ jobs:
       with:
         vs-version: '[17.4,17.7)'
 
+    - name: Setup VS Dev Environment
+      uses: seanmiddleditch/gha-setup-vsdevenv@v4
+
     - name: Setup Protocol Buffers compiler
       uses: Noelware/setup-protoc@1.1.0
       with:
@@ -51,6 +54,7 @@ jobs:
         cmake --version
         java -version
         MSBuild -ver
+        devenv /version
 
     - name: Setup zlib-1.3 source code to PATH
       run: |
