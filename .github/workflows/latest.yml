@@ -30,19 +30,18 @@ jobs:
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
-
-    - name: Setup VS Dev Environment
-      uses: seanmiddleditch/gha-setup-vsdevenv@v4
+      with:
+        vs-version: '[17.4,17.7)'
 
     - name: Setup Protocol Buffers compiler
       uses: Noelware/setup-protoc@1.1.0
       with:
         version: "v3.7.1"
 
-    - name: Setup WSL
-      uses: Vampire/setup-wsl@v2.0.1
-      with:
-        distribution: Ubuntu-22.04
+    # - name: Setup WSL
+    #   uses: Vampire/setup-wsl@v2.0.1
+    #   with:
+    #     distribution: Ubuntu-22.04
 
     - name: Test environment
       shell: cmd
