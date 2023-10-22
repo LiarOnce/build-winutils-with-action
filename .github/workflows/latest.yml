@@ -36,6 +36,11 @@ jobs:
       with:
         version: "v3.7.1"
 
+    - name: Setup WSL
+      uses: Vampire/setup-wsl@v2.0.1
+      with:
+        distribution: Ubuntu-22.04
+
     - name: Test environment
       shell: cmd
       run: |
