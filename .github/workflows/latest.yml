@@ -57,7 +57,7 @@ jobs:
     - name: Extract source code
       uses: a7ul/tar-action@v1.1.3
       with:
-        command: zxvf
+        command: x
         cwd: ./
         files: hadoop-3.3.6-src.tar.gz
 
