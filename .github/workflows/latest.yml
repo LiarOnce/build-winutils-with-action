@@ -61,5 +61,13 @@ jobs:
         cwd: ./
         files: hadoop-3.3.6-src.tar.gz
 
-    - name: Tree dir
-      run: tree
+    - name: Build Hadopp
+      run: |
+        cd hadoop-3.3.6
+        mvn clean package -Pdist,native-win -DskipTests -Dtar -Dmaven.javadoc.skip=true
+
+    - name: Output Build Artifact
+      uses: actions/upload-artifact@v3.1.3
+      with:
+        name: hadoop-dist
+        path: hadoop-3.3.6/hadoop-dist
