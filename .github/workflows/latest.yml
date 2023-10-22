@@ -28,18 +28,26 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
 
-    - name: Setup Protocol Buffers
-      run: |
-        curl -fsSL -O https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
-        tree
-        unzip protoc-3.7.1-win64.zip -d protoc
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Setup Protocol Buffers compiler\
+      uses: Noelware/setup-protoc@1.1.0
+      with:
+        version: "3.7.1"
+
+    # - name: Setup Protocol Buffers
+    #   run: |
+    #     curl -fsSL -O https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
+    #     tree
+    #     unzip protoc-3.7.1-win64.zip -d protoc
 
     - name: Test environment
       run: |
         mvn -v
         .\protoc\bin\protoc --version
         cmake --version
-        java --version
+        java -version
         MSBuild -ver
         
       
