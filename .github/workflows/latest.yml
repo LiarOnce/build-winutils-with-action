@@ -33,12 +33,11 @@ jobs:
         curl -fsSL -O https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
         tree
         unzip protoc-3.7.1-win64.zip -d protoc
-        $env:path=-join(".\protoc\bin;", "$env:path")
 
     - name: Test environment
       run: |
         mvn -v
-        protoc --version
+        .\protoc\bin\protoc --version
         cmake --version
         java --version
         MSBuild -ver
