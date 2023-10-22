@@ -32,8 +32,8 @@ jobs:
       run: |
         curl -fsSL -O https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
         tree
-        unzip protoc-3.7.1-win64.zip protoc
-        set PATH=".\protoc\bin";%PATH%
+        unzip protoc-3.7.1-win64.zip -d protoc
+        $env:path=-join(".\protoc\bin;", "$env:path")
 
     - name: Test environment
       run: |
