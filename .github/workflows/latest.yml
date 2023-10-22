@@ -27,13 +27,13 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-        cache: maven
 
     - name: Test environment
       run: |
         mvn -v
         protoc --version
         cmake --version
+        java --version
         MSBuild -ver
         
       
