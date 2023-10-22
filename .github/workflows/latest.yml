@@ -65,7 +65,8 @@ jobs:
     - name: Build Hadopp
       shell: cmd
       run: |
-        cd hadoop-3.3.6
+        cd hadoop-3.3.6-src
+        xcopy /y /c /h /r /s "..\patch\hadoop-3.3.6-src\*.*" "."
         mvn clean package -Pdist,native-win -DskipTests -Dtar -Dmaven.javadoc.skip=true
 
     - name: Output Build Artifact
