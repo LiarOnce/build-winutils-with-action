@@ -28,6 +28,12 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
 
+    - name: Setup Protocol Buffers
+      run: |
+        wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
+        unzip protoc-3.7.1-win64.zip protoc
+        set PATH=".\protoc\bin";%PATH%
+
     - name: Test environment
       run: |
         mvn -v
