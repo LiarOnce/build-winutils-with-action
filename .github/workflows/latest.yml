@@ -45,7 +45,7 @@ jobs:
     - name: Test environment
       run: |
         mvn -v
-        .\protoc\bin\protoc --version
+        protoc --version
         cmake --version
         java -version
         MSBuild -ver
