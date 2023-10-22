@@ -37,6 +37,7 @@ jobs:
         version: "v3.7.1"
 
     - name: Test environment
+      shell: cmd
       run: |
         mvn -v
         protoc --version
@@ -62,6 +63,7 @@ jobs:
         files: hadoop-3.3.6-src.tar.gz
 
     - name: Build Hadopp
+      shell: cmd
       run: |
         cd hadoop-3.3.6
         mvn clean package -Pdist,native-win -DskipTests -Dtar -Dmaven.javadoc.skip=true
