@@ -30,7 +30,7 @@ jobs:
 
     - name: Setup Protocol Buffers
       run: |
-        curl -O https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
+        curl -fsSL -O https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-win64.zip
         tree
         unzip protoc-3.7.1-win64.zip protoc
         set PATH=".\protoc\bin";%PATH%
@@ -45,4 +45,4 @@ jobs:
         
       
     # - name: Get Hadoop source code
-    #   run: curl -O https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6-src.tar.gz
+    #   run: curl -fsSL -O https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6-src.tar.gz
